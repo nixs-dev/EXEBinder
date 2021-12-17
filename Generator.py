@@ -1,6 +1,6 @@
-from subprocess import Popen
 import base64
 import os
+import shutil
 
 
 class Generator:
@@ -41,4 +41,10 @@ class Generator:
 
         os.system(command)
 
-        print('DONE!')
+        os.remove(os.getcwd() + '\\' + self.source_file_name)
+        os.remove(os.getcwd() + '\\' + self.result_name + '.spec')
+        shutil.rmtree(os.getcwd() + '\\build')
+        shutil.move(f'{os.getcwd()}\\dist\\{self.result_name}.exe', f'{os.getcwd()}\\{self.result_name}.exe')
+        shutil.rmtree(os.getcwd() + '\\dist')
+
+        print('\n\nDONE!')

@@ -1,5 +1,6 @@
 from Generator import Generator
 import sys
+import os
 
 
 # Handle args and get data for start operation
@@ -20,6 +21,15 @@ else:
     result_file = 'result'
 
 files_to_bind = args
+
+# Check all files exists
+
+for file_ in files_to_bind:
+    if not os.path.exists(file_):
+        print(f'{file_} not found!')
+        sys.exit()
+
+# Start operation
 
 confirm = input(f'{" + ".join(files_to_bind)} = {result_file + ".exe"}\n\nDo you really want to do that ?[y/n]')
 
