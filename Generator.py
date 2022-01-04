@@ -37,7 +37,7 @@ class Generator:
             source.write(self.template.replace('#EXES-BINARY#', exes_binaries))
 
     def get_exe(self):
-        command = f'pyinstaller --noconsole --onefile --name {self.result_name} {self.source_file_name}'
+        command = f'pyinstaller --onefile --name {self.result_name} {self.source_file_name}'
 
         os.system(command)
 
