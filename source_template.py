@@ -24,7 +24,7 @@ def remove_on_exit(exe_name):
     global temp_dir
 
     while process_is_running(exe_name):
-        print('not yet')
+        pass
 
     os.remove(f'{temp_dir}\\{exe_name}')
 
